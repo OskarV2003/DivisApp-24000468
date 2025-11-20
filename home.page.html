@@ -1,0 +1,52 @@
+<!-- src/app/home/home.page.html -->
+<ion-header>
+<ion-toolbar color="primary">
+  <ion-title>
+    DivisApp 24000468
+  </ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Conversor de Quetzales a Dólares</ion-card-title>
+    <ion-card-subtitle>Tasa fija: 8 quetzales = 1 dólar</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <ion-item>
+      <ion-label position="floating">Cantidad en quetzales (Q)</ion-label>
+      <ion-input
+        type="number"
+        [(ngModel)]="quetzales"
+        placeholder="Ejemplo: 80">
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" class="ion-margin-top" (click)="convertir()">
+      Convertir a dólares
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="outline"
+      color="medium"
+      class="ion-margin-top"
+      (click)="limpiar()">
+      Limpiar
+    </ion-button>
+
+    <div class="resultado" *ngIf="dolares !== null">
+      <p>
+        <strong>Resultado:</strong><br>
+        Q {{ quetzales }} = <strong>\${{ dolares | number:'1.2-2' }}</strong> USD
+      </p>
+    </div>
+
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
